@@ -11,7 +11,7 @@ Protect WordPress against keyloggers and stolen passwords
 
 == Description ==
 
-NinjaWPass is a free WordPress plugin written to protect your blog
+NinjaWPass is a WordPress plugin written to protect your blog
 administration console. It makes it basically impossible for a hacker
 who stole your password to log in to your console.
 
