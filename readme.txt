@@ -1,5 +1,5 @@
 === NinjaWPass ===
-Contributors: Jerome Bruandet - NinTechNet.com (contact@nintechnet.com)
+Contributors: NinTechNet.com
 Tags: keylogger, security, alert, admin, login, password, protect, malware, brute-force, attack
 Requires at least: 2.5
 Tested up to: 3.5.1
@@ -52,3 +52,4 @@ block brute-force attacks.
 
 = 1.0.3 =
 * Added calls to the built-in wp_die() function.
+
