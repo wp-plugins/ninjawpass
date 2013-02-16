@@ -44,7 +44,7 @@ block brute-force attacks.
 * First release.
 
 = 1.0.1 =
-* Fixed a HTML bug (&gt;DIV>) in the settings page.
+* Fixed a HTML bug (&lt;DIV>) in the settings page.
 * Auto add admin email in the login alert input field.
 
 = 1.0.2 =
