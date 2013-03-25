@@ -3,13 +3,13 @@
 Plugin Name: NinjaWPass
 Plugin URI: http://NinjaFirewall.com/ninjawpass.html
 Description: Secure WordPress log-in form against keyloggers, stolen passwords and brute-force attacks.
-Version: 1.0.3
+Version: 1.0.4
 Author: The Ninja Technologies Network
 Author URI: http://NinTechNet.com/
 License: GPLv2 or later
 */
 
-define('NINJAWP_VERSION', '1.0.3');
+define('NINJAWP_VERSION', '1.0.4');
 
 
 /* ================================================================ */
@@ -108,7 +108,7 @@ function random_num( $ninjawpass ) {
 	$ran_values = array();
 	while ( $count < 4 ) {
 		$tmp = mt_rand( 1, strlen($ninjawpass) );
-		if (! $ran_values[$tmp] ) {
+		if (! isset($ran_values[$tmp]) ) {
 			$ran_values[$tmp] = 1;
 			$count++;
 		}
@@ -267,7 +267,7 @@ function ninjawp_login_alert() {
 add_action('admin_menu', 'ninjawp_admin_menu');
 
 function ninjawp_admin_menu() {
-	add_submenu_page('options-general.php', 'NinjaWPass', 'NinjaWPass', 10, __FILE__, 'ninjawp_submenu');
+	add_submenu_page('options-general.php', 'NinjaWPass', 'NinjaWPass', 'activate_plugins', __FILE__, 'ninjawp_submenu');
 }
 
 function ninjawp_submenu() {
