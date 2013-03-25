@@ -1,9 +1,9 @@
 === NinjaWPass ===
-Contributors: NinTechNet.com
+Contributors: nintechnet
 Tags: keylogger, security, alert, admin, login, password, protect, malware, brute-force, attack
 Requires at least: 2.5
 Tested up to: 3.5.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,3 +53,6 @@ block brute-force attacks.
 = 1.0.3 =
 * Added calls to the built-in wp_die() function.
 
+= 1.0.4 =
+* Fixed $capability in add_submenu_page() that could display an error
+message when WordPress was in DEBUG mode.
