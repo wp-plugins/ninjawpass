@@ -1,4 +1,5 @@
 <?php
+
 /*
 Plugin Name: NinjaWPass
 Plugin URI: http://NinjaFirewall.com/ninjawpass.html
