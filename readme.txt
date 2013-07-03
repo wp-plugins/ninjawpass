@@ -7,6 +7,7 @@ Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+
 Protect WordPress against keyloggers and stolen passwords
 
 == Description ==
