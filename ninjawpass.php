@@ -3,18 +3,43 @@
 Plugin Name: NinjaWPass
 Plugin URI: http://NinjaFirewall.com/ninjawpass.html
 Description: Secure WordPress log-in form against keyloggers, stolen passwords and brute-force attacks.
-Version: 1.0.4
+Version: 1.0.5
 Author: The Ninja Technologies Network
 Author URI: http://NinTechNet.com/
 License: GPLv2 or later
 */
 
-define('NINJAWP_VERSION', '1.0.4');
+/*
+ +---------------------------------------------------------------------+
+ | NinjaWPass                                                          |
+ |                                                                     |
+ | (c)2012-2013 NinTechNet                                             |
+ | <wordpress@nintechnet.com>                                          |
+ +---------------------------------------------------------------------+
+ | http://nintechnet.com/                                              |
+ +---------------------------------------------------------------------+
+ | REVISION: 2013-07-03 23:11:10                                       |
+ +---------------------------------------------------------------------+
+*/
+define('NINJAWP_VERSION', '1.0.5');
+ /*
+ +---------------------------------------------------------------------+
+ | This program is free software: you can redistribute it and/or       |
+ | modify it under the terms of the GNU General Public License as      |
+ | published by the Free Software Foundation, either version 3 of      |
+ | the License, or (at your option) any later version.                 |
+ |                                                                     |
+ | This program is distributed in the hope that it will be useful,     |
+ | but WITHOUT ANY WARRANTY; without even the implied warranty of      |
+ | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the       |
+ | GNU General Public License for more details.                        |
+ +---------------------------------------------------------------------+
+*/
 
 
 /* ================================================================ */
 
-if ( $_SERVER['SCRIPT_FILENAME'] == __FILE__ ) { die('Forbidden'); }
+if (! defined( 'ABSPATH' ) ) { die( 'Forbidden' ); }
 
 if (! session_id() ) { session_start(); }
 
@@ -70,7 +95,7 @@ function ninjawp_login_hook () {
 			} else {
 				$label_1 = '1st';
 			}
-			$text .= '<input type="password" size="1" tabindex="20" maxlength=1 value="" class="input" name="nwp1" style="width:30px;text-align:center;">';
+			$text .= '<input type="password" size="1" maxlength=1 value="" class="input" name="nwp1" style="width:30px;text-align:center;">';
 		} elseif ( $count == 2 ) {
 			if ( ($key - 1) != $n_char[$count-1] ) {
 				for ( $i=$n_char[1]+1; $i< $key; $i++ ) {
@@ -78,7 +103,7 @@ function ninjawp_login_hook () {
 				}
 			}
 			@$numb[$key] ? $label_2 = $key . $numb[$key] : $label_2 = $key . 'th';
-			$text .= '<input type="password" size="1" tabindex="20" maxlength=1 value="" class="input" name="nwp2" style="width:30px;text-align:center;">';
+			$text .= '<input type="password" size="1" maxlength=1 value="" class="input" name="nwp2" style="width:30px;text-align:center;">';
 		} elseif ($count == 3) {
 			if ( ($key - 1) != $n_char[$count - 1] ) {
 				for ( $i = $n_char[2] + 1; $i < $key; $i++ ) {
@@ -86,7 +111,7 @@ function ninjawp_login_hook () {
 				}
 			}
 			@$numb[$key] ? $label_3 = $key . $numb[$key] : $label_3 = $key . 'th';
-			$text .= '<input type="password" size="1" tabindex="20" maxlength=1 value="" class="input" name="nwp3" style="width:30px;text-align:center;">';
+			$text .= '<input type="password" size="1" maxlength=1 value="" class="input" name="nwp3" style="width:30px;text-align:center;">';
 		}
 		$count++;
 	}
@@ -442,7 +467,7 @@ function ninjawp_submenu() {
 				</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="description">Do you wish to receive an email whenever someone logs in to your WordPress admin console&nbsp;?</span>
 				<br />
 				<input type="text" name="nwp_login_email" size="20" maxlength="250" value="<?php
-				if ( $ninjawp_options['login_email'] ) {
+				if (! empty( $ninjawp_options['login_email'] ) ) {
 					echo $ninjawp_options['login_email'];
 				} else {
 					echo get_option('admin_email');
@@ -454,6 +479,11 @@ function ninjawp_submenu() {
 		<tr valign="top">
 			<th>Brute-force protection :</th>
 			<td>
+			<?php
+				if (! isset( $ninjawp_options['ban_time']  ) ) { $ninjawp_options['ban_time'] = 0; }
+				if (! isset( $ninjawp_options['failed_count'] ) ) { $ninjawp_options['failed_count'] = 0; }
+				if (! isset( $ninjawp_options['max_seconds'] ) ) { $ninjawp_options['max_seconds'] = 0; }
+			?>
 			Ban for <input type=text maxlength=2 class="small-text" value="<?php echo $ninjawp_options['ban_time'] ?>" name='ban_time' id='ban1' onkeyup="is_number('ban1')"> minutes any IP with more than <input type=text maxlength=2 class="small-text" value="<?php echo $ninjawp_options['failed_count'] ?>" name='failed_count' id='ban2' onkeyup="is_number('ban2')"> failed login attempts within <input type=text maxlength=2 class="small-text" value="<?php echo $ninjawp_options['max_seconds'] ?>" name='max_seconds' id='ban3' onkeyup="is_number('ban3')"> seconds.<br /><span class="description">Leave fields empty if you don't want to enable brute-force protection.</span>
 			</td>
 		</tr>

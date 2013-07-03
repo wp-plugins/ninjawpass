@@ -2,8 +2,8 @@
 Contributors: nintechnet
 Tags: keylogger, security, alert, admin, login, password, protect, malware, brute-force, attack
 Requires at least: 2.5
-Tested up to: 3.5.1
-Stable tag: 1.0.4
+Tested up to: 3.5.2
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -11,9 +11,9 @@ Protect WordPress against keyloggers and stolen passwords
 
 == Description ==
 
-NinjaWPass is a WordPress plugin written to protect your blog
-administration console. It makes it basically impossible for a hacker
-who stole your password to log in to your console.
+NinjaWPass is a WordPress plugin used to protect your blog administration
+console. It makes it basically impossible for a hacker who stole your
+password to log in to your console.
 
 The way it works is simple but very efficient:
 All you need to do is to define a second password (AKA the NinjaWPass
@@ -40,19 +40,23 @@ block brute-force attacks.
 
 == Changelog ==
 
-= 1.0.0 =
-* First release.
-
-= 1.0.1 =
-* Fixed a HTML bug (&lt;DIV>) in the settings page.
-* Auto add admin email in the login alert input field.
-
-= 1.0.2 =
-* Options to ban IPs in case of brute-force attacks.
-
-= 1.0.3 =
-* Added calls to the built-in wp_die() function.
+= 1.0.5 =
+* Added uninstaller.
+* Fixed `tabindex` issue on login page.
 
 = 1.0.4 =
 * Fixed $capability in add_submenu_page() that could display an error
 message when WordPress was in DEBUG mode.
+
+= 1.0.3 =
+* Added calls to the built-in wp_die() function.
+
+= 1.0.2 =
+* Options to ban IPs in case of brute-force attacks.
+
+= 1.0.1 =
+* Fixed a HTML bug (DIV tag) in the settings page.
+* Auto add admin email in the login alert input field.
+
+= 1.0.0 =
+* First release.
