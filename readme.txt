@@ -12,6 +12,9 @@ Protect WordPress against keyloggers and stolen passwords
 
 == Description ==
 
+> Warning: we do not support this plugin any longer. If you want to protect your blog, check our [NinjaFirewall web application firewall plugin](https://wordpress.org/plugins/ninjafirewall/ "") instead. It offers many more options and some very advanced and powerful features not found in any other plugin.
+
+
 NinjaWPass is a WordPress plugin used to protect your blog administration
 console. It makes it basically impossible for a hacker who stole your
 password to log in to your console.
